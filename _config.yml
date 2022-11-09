@@ -79,7 +79,42 @@ analytics:
 
 
 # Site Author
-author: Wang Fei
+author:
+  name             : "A Fei"
+  avatar           : "dog.jpeg"
+  bio              : "Your biography for the left-hand sidebar"
+  location         : "WuHan"
+  employer         :
+  pubmed           : 
+  googlescholar    : 
+  email            :  "wangfeia@uniontech.com"
+  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  uri              :
+  bitbucket        :
+  codepen          :
+  dribbble         :
+  flickr           :
+  facebook         :
+  foursquare       :
+  github           : "FeiWang1119"
+  google_plus      :
+  keybase          :
+  instagram        :
+  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
+  lastfm           :
+  linkedin         :
+  orcid            : 
+  pinterest        :
+  soundcloud       :
+  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  steam            :
+  tumblr           :
+  twitter          : 
+  vine             :
+  weibo            :
+  xing             :
+  youtube          :
+  wikipedia        :
 
 
 # Reading Files
