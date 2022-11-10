@@ -22,18 +22,18 @@ dpkg-buildpackage -us -uc -nc
 sudo apt build-dep dde-daemon
 
 # Qt 
-|命令|说明|
-|--|--|
-apt source qtbase-opensource-src | 获取源码
--nograb -platformpluginpath /home/demo/repo/dtk/qt5integration/bin/plugins | 指定平台插件
-export LD_LIBRARY_PATH=qtbuilddir/lib:dtkbuilddir/lib | 设置程序运行是链接库的路径
-export QT_QPA_PLATFORM_PLUGIN_PATH=qtbuilddir/plugins/platforms |  平台相关插件
-export QT_PLUGIN_PATH=qtbuilddir/plugins | Qt插件
-export PKG_CONFIG_PATH=qtbuilddir/lib/pkgconfig:dtkbuilddir/lib/pkgconfig | 我们在Qt pro 中配置的 phgconfig 就是用过查找该目录下的.PC文件 实现头文件和库的引入
-apt install libqt5gui5-dbgsym libqt5widgets5-dbgsym libqt5core5a-dbgsym | 安装Qt的调试库
-LANG=bo_CN LANGUAGE=bo_CN dde-file-manager |  藏语
-sudo apt install qtbase5-examples qt5-doc-html | 安装帮助文档
-sudo apt install qt5-default | 安装qt5默认配置（qmake找不到qt5）
+| 命令                                                                       | 说明                                                  |   
+|-----------------------------------------------------------------------    |-------------------------------------------------    |    
+|apt source qtbase-opensource-src                                           | 获取源码                                              |  
+|-nograb -platformpluginpath /home/demo/repo/dtk/qt5integration/bin/plugins | 指定平台插件  
+|export LD_LIBRARY_PATH=qtbuilddir/lib:dtkbuilddir/lib                      | 设置程序运行是链接库的路径                                   |
+|export QT_QPA_PLATFORM_PLUGIN_PATH=qtbuilddir/plugins/platforms            | 平台相关插件                                         |
+|export QT_PLUGIN_PATH=qtbuilddir/plugins                                   | Qt插件                                             |
+|export PKG_CONFIG_PATH=qtbuilddir/lib/pkgconfig:dtkbuilddir/lib/pkgconfig  | pro中配置的pkgconfig 查找该目录下的.PC文件,实现头文件和库的引入|
+|apt install libqt5gui5-dbgsym libqt5widgets5-dbgsym libqt5core5a-dbgsym    | 安装Qt的调试库  |
+|LANG=bo_CN LANGUAGE=bo_CN dde-file-manager                                 |  藏语                                                |
+|sudo apt install qtbase5-examples qt5-doc-html                             | 安装帮助文档                                          |
+|sudo apt install qt5-default                                               | 安装qt5默认配置（qmake找不到qt5）                       |
 
 # 仓库
 
