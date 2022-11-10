@@ -21,7 +21,8 @@ dpkg-buildpackage -us -uc -nc
 # 安装包依赖
 sudo apt build-dep dde-daemon
 
-# Qt 
+# Qt  
+
 | 命令                                                                       | 说明                                                  |   
 |-----------------------------------------------------------------------    |-------------------------------------------------    |    
 |apt source qtbase-opensource-src                                           | 获取源码                                              |  
