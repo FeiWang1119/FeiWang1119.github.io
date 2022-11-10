@@ -118,11 +118,11 @@ crp上ut失败时跳过ut
 
 # Git
 
-|命令|说明|
-|--|--|
-git push origin <src>:<dst> | 提交本地分支src到远程分支dst（如果没有dst会创建dst）
-git push origin --delete develop | 删除远程分支develop
-git fetch origin develop/snipe:snipe | 从远程分支到本地分支
+|命令                                 |说明                                  |
+|------------------------------------|--------------------------------------|
+|git push origin <src>:<dst>         | 提交本地分支src到远程分支dst（如果没有dst会创建dst）|
+|git push origin --delete develop    | 删除远程分支develop                    |
+|git fetch origin develop/snipe:snipe| 从远程分支到本地分支                     |
 
 # 进程
 
