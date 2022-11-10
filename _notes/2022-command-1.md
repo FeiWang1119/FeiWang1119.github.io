@@ -1,8 +1,8 @@
 ---
 title: “linux command”
-collection: working
+collection: notes
 type: "command"
-permalink: /notes/2022-command
+permalink: /notes/2022-command-1
 venue: "Uniontech. Company"
 date: 2022-11-10
 location: "WuHan, China"
