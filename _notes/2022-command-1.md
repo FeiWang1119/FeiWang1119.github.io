@@ -42,32 +42,34 @@ gerrit http://aptly.uniontech.com/pkg/uos-exprimental/commit/
 索引 http://aptly.uniontech.com/pkg/uos-exprimental/commit/dists/unstable/main/binary-amd64/
 
 #  gsetting
-|命令|说明|
-|--|--|
-glib-compile-schemas | /usr/share/glib-2.0/schemas
-gsettings list-schemas |             显示系统已安装的不可重定位的schema  
-gsettings list-relocatable-schemas | 显示已安装的可重定位的schema  
-gsettings list-children SCHEMA   |  显示指定schema的children，其中SCHEMA指xml  文件中schema的id属性值，例如实例中的"org.lili.test.app.testgsettings"
-gsettings list-keys SCHEMA |         显示指定schema的所有项(key)
-gsettings range SCHEMA KEY  |        查询指定schema的指定项KEY的有效取值范围
-gsettings get SCHEMA KEY     |      显示指定schema的指定项KEY的值
-gsettings set SCHEMA KEY VALUE |    设置指定schema的指定项KEY的值为VALUE
-gsettings reset SCHEMA KEY      |   恢复指定schema的指定项KEY的值为默认值
-gsettings reset-recursively SCHEMA| 恢复指定schema的所有key的值为默认值
-gsettings list-recursively [SCHEMA]|如果有SCHEMA参数，则递归显示指定schema的所有项(key)和值(value)，如果没有SCHEMA参数，则递归显示所有schema的所有项(key)和值(value)
+
+|命令                                |说明                                             |
+|-----------------------------------|---------------------------------------         |
+|glib-compile-schemas               | /usr/share/glib-2.0/schemas                    |
+|gsettings list-schemas             | 显示系统已安装的不可重定位的schema  
+|gsettings list-relocatable-schemas | 显示已安装的可重定位的schema  
+|gsettings list-children SCHEMA     | 显示指定schema的children，SCHEMA指xml  文件中schema的id属性值 |
+|gsettings list-keys SCHEMA         | 显示指定schema的所有项(key)                       |
+|gsettings range SCHEMA KEY         | 查询指定schema的指定项KEY的有效取值范围             |
+|gsettings get SCHEMA KEY           | 显示指定schema的指定项KEY的值                      |
+|gsettings set SCHEMA KEY VALUE     | 设置指定schema的指定项KEY的值为VALUE                |
+|gsettings reset SCHEMA KEY         | 恢复指定schema的指定项KEY的值为默认值                | 
+|gsettings reset-recursively SCHEMA | 恢复指定schema的所有key的值为默认值                  |
+|gsettings list-recursively [SCHEMA]| 有SCHEMA参数，则递归显示指定schema的所有项(key)和值(value)，否则递归显示所有schema的|
 
 #  dde-daemon
-|命令|说明|
-|--|--|
-sudo pkill -ef /usr/lib/deepin-daemon/dde-system-daemon; sudo DDE_DEBUG_LEVEL=debug DDE_DEBUG_MATCH=account /usr/lib/deepin-daemon/dde-system-daemon | 定位 dde-daemon
+
+定位 dde-daemon：sudo pkill -ef /usr/lib/deepin-daemon/dde-system-daemon; sudo DDE_DEBUG_LEVEL=debug DDE_DEBUG_MATCH=account /usr/lib/deepin-daemon/dde-system-daemon 
 
 #  翻译
-|命令|说明|
-|--|--|
-tx pull -s -b m20 |  拉取翻译（-a -f 全部拉取）
-tx push -s -b master | 推送翻译
+
+|命令                  |说明                          |
+|---------------------|------------------------------|
+|tx pull -s -b m20    | 拉取翻译（-a -f 全部拉取）      |
+|tx push -s -b master | 推送翻译                       |
 
 # coredump
+
 1. sudo apt install systemd-coredump 安装
 2. sudo apt install dde-control-center-dbgsym 安装控制中心符号调试信息
 如果没有进行core dump 的相关设置，默认是不开启的。可以通过ulimit -c查看是否开启。如果输出为0，则没有开启，需要执行ulimit -c unlimited开启core dump功能
@@ -77,9 +79,11 @@ tx push -s -b master | 推送翻译
 6. sudo apt install lz4; lz4 -d FILE 来解压coredump文件
 
 # uos 激活
+
 uos-activator-cmd -s --kms kms.uniontech.com:8900:Vlc1cGIyNTBaV05v
 
 # ssh
+
 ssh-keygen -o
 
 /usr/sbin/sshd -T 查看出错原因
@@ -90,24 +94,30 @@ no hostkeys available— exiting：
 
 ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
 ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
+
 2. 修改密钥权限：
 
 chmod 600 /etc/ssh/ssh_host_dsa_key
 chmod 600 /etc/ssh/ssh_host_rsa_key
+
 3. 重启ssh
+
 systemctl restart ssh
 service ssh restart
 
 # wayland 下复制两次问题
+
 killall dde-clipboardloader 
 
 # CRP跳过单元测试方法：
+
 项目-编辑-构建参数列表
 {'i386': 'DEB_BUILD_OPTIONS=nocheck ', 'arm64': 'DEB_BUILD_OPTIONS=nocheck ','amd64': 'DEB_BUILD_OPTIONS=nocheck ', 'mips64el': 'DEB_BUILD_OPTIONS=nocheck ', 'sw_64': 'DEB_BUILD_OPTIONS=nocheck ', 'loongarch64': 'DEB_BUILD_OPTIONS=nocheck '}
 
 crp上ut失败时跳过ut
 
 # Git
+
 |命令|说明|
 |--|--|
 git push origin <src>:<dst> | 提交本地分支src到远程分支dst（如果没有dst会创建dst）
@@ -115,20 +125,22 @@ git push origin --delete develop | 删除远程分支develop
 git fetch origin develop/snipe:snipe | 从远程分支到本地分支
 
 # 进程
-|命令|说明|
-|--|--|
-tr '\0' '\n' < /proc/12345/environ 或者 ps eww -p 12345 | 查看进程环境变量
-pldd 12345 或者 （cat /proc/12345/maps \| awk '{print $6}' \| grep '\.so' \| sort \| uniq） | 查看程依赖的so
-strings *.so | 查看so的字符
+
+|命令                                                                                      |说明                 |
+|-----------------------------------------------------------------------------------------|-------------------|
+|tr '\0' '\n' < /proc/12345/environ 或者 ps eww -p 12345                                   | 查看进程环境变量     |  
+|pldd 12345 或者 cat /proc/12345/maps \| awk '{print $6}' \| grep '\.so' \| sort \| uniq   | 查看程依赖的so      |
+|strings *.so                                                                             | 查看so的字符        |
 
 # dbus
-|命令|说明|
-|--|--|
-qdbus --session  | 查看当前session所有的service信息
-qdbus --system   | 查看当前system所有的service信息
-could not find a Qt installation of '' | sudo apt install qtchooser
-qdbus com.deepin.dde.Clipboard /com/deepin/dde/Clipboard | tab补全
-dbus-monitor --session interface=org.freedesktop.Notifications  | 监听dbus服务接口
+
+|命令                                                           |说明                             |
+|--------------------------------------------------------------|---------------------------------|
+|qdbus --session                                               | 查看当前session所有的service信息   |
+|qdbus --system                                                | 查看当前system所有的service信息    |
+|could not find a Qt installation of ''                        | sudo apt install qtchooser      | 
+|qdbus com.deepin.dde.Clipboard /com/deepin/dde/Clipboard      | tab补全                          |
+|dbus-monitor --session interface=org.freedesktop.Notifications| 监听dbus服务接口                  |
 
 # xprop 查看窗口属性
 
@@ -143,12 +155,12 @@ WAYLAND_DEBUG=1
 
 # 环境变量
 
-|命令|说明|
-|--|--|
-XDG_SESSION_TYPE | x11/wayland
-XDG_CURRENT_DESKTOP | deepin （窗管信息）
-WAYLAND_DISPLAY
-KDE_FULL_SESSION
-GNOME_DESKTOP_SESSION_ID
-DESKTOP_SESSION | deepin
-QT_WAYLAND_SHELL_INTEGRATION=kwayland-shell
+|命令                           |说明            |
+|------------------------------|----------------|
+|XDG_SESSION_TYPE              | x11/wayland    |
+|XDG_CURRENT_DESKTOP           | deepin （窗管信息）|
+|WAYLAND_DISPLAY               |                |
+|KDE_FULL_SESSION              |                 |
+|GNOME_DESKTOP_SESSION_ID      |                 |  
+|DESKTOP_SESSION | deepin      |                 |
+|QT_WAYLAND_SHELL_INTEGRATION  | kwayland-shell   |
