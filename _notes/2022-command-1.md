@@ -126,7 +126,6 @@ strings *.so | 查看so的字符
 |--|--|
 qdbus --session  | 查看当前session所有的service信息
 qdbus --system   | 查看当前system所有的service信息
-
 could not find a Qt installation of '' | sudo apt install qtchooser
 qdbus com.deepin.dde.Clipboard /com/deepin/dde/Clipboard | tab补全
 dbus-monitor --session interface=org.freedesktop.Notifications  | 监听dbus服务接口
